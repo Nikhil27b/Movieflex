@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import MovieCard from "../components/MovieCard";
+import BannerSlider from "../components/Banner";
 
 const BASE_URL = "https://api.themoviedb.org/3/discover/movie";
 
@@ -52,6 +53,7 @@ const Home = () => {
     <>
       <section className="homepage">
         <div className="container-fluid">
+          <BannerSlider></BannerSlider>
           {sections.map((section, index) => (
             <div key={index} className="all-movies">
               <h2 className="year-movie">{section.year}</h2>
