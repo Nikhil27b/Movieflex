@@ -5,13 +5,13 @@ import useFetchMovies from "../services/Fetchapi";
 const BASE_URL = "https://api.themoviedb.org/3/";
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-const Search = () => {
+const Genre = () => {
   const [searchParams] = useSearchParams();
-  const query = searchParams.get("query");
+  const query = searchParams.get("id");
 
   const { loading, error, data } = useFetchMovies(
     query
-      ? `${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${query}`
+      ? `${BASE_URL}discover/movie?api_key=${API_KEY}&language=en-US&with_genres=${query}&sort_by=popularity.desc`
       : null,
     [query]
   );
@@ -20,7 +20,6 @@ const Search = () => {
 
   return (
     <div className="container-fluid seach-bar">
-      <h2 className="heading">Search Results for &quot;{query}&quot;</h2>
       {loading ? (
         <p>Loading...</p>
       ) : error ? (
@@ -38,4 +37,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default Genre;

@@ -1,25 +1,7 @@
 import "./App.css";
-import Home from "./pages/Home";
-import Error from "./pages/Error";
-import MovieDetails from "./pages/Moviedetails"
-
-import Search from "./pages/Search";
-import { createBrowserRouter, Outlet } from "react-router-dom";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-
-const AppLayout = () => {
-  return (
-    <>
-      <Nav></Nav>
-      <main className="main">
-        <Outlet></Outlet>
-      </main>
-      <Footer></Footer>
-    </>
-  );
-};
-
+import { Home, Search, MovieDetails, Error, Genre } from "./Pages";
+import { createBrowserRouter } from "react-router-dom";
+import AppLayout from "./Layout";
 
 const appRoutes = createBrowserRouter([
   {
@@ -37,6 +19,10 @@ const appRoutes = createBrowserRouter([
       {
         path: "/movie-review",
         element: <MovieDetails />,
+      },
+      {
+        path: "/movie-category",
+        element: <Genre />,
       },
     ],
     errorElement: <Error />,

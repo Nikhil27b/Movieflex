@@ -1,19 +1,20 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 import BannerSlider from "../components/Banner";
 
-const BASE_URL = "https://api.themoviedb.org/3/discover/movie";
+const BASE_URL = "https://api.themoviedb.org/3/";   
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [sections, setSections] = useState([]);
-  const currentPageRef = useRef(1);
+  const currentPageRef = 1; 
 
   const fetchMovies = async (selectedYear) => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `${BASE_URL}?api_key=2dca580c2a14b55200e784d157207b4d&sort_by=popularity.desc&primary_release_year=${selectedYear}&page=${currentPageRef.current}&vote_count.gte=100`
+        `${BASE_URL}/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&primary_release_year=${selectedYear}&page=${currentPageRef}&vote_count.gte=100`
       );
       const data = await response.json();
       const newSection = {
@@ -40,7 +41,6 @@ const Home = () => {
         !isLoading
       ) {
         const nextYear = Math.min(sections.length + 2012, 2024);
-        console.log("You're at the bottom of the homepage");
         fetchMovies(nextYear);
       }
     };

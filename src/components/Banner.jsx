@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 
@@ -28,8 +28,6 @@ const BannerSlider = ()=>{
           <SwiperSlide>
             <img src="https://i.ytimg.com/vi/bINc3TvmtKw/maxresdefault.jpg" alt="" />
           </SwiperSlide>
-
-          ...
         </Swiper>
       );
 }
