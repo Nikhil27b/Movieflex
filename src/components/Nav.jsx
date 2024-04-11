@@ -37,7 +37,7 @@ const Nav = () => {
           <input
             type="search"
             placeholder="Search Movie"
-            aria-label="Search"
+            aria-label="Search Movie Button"
             name="search"
           />
           <button type="submit">Search</button>

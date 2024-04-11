@@ -11,7 +11,7 @@ const MovieCard = ({ movie }) => {
         <img
           src={IMAGE_BASE_URL + poster_path}
           loading="lazy"
-          alt="Movie Poster"
+          alt="Movie Poster All"
         />
         <div className="card-details">
           <h2>{title}</h2>

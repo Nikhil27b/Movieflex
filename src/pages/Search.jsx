@@ -22,7 +22,7 @@ const Search = () => {
     <div className="container-fluid seach-bar">
       <h2 className="heading">Search Results for &quot;{query}&quot;</h2>
       {loading ? (
-        <p>Loading...</p>
+        <p>Loading....</p>
       ) : error ? (
         <p>{error}</p>
       ) : movies && movies.length > 0 ? (

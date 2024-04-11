@@ -272,12 +272,12 @@ a:hover {
   padding-right: 1rem;
 }
 
-.company p{
+.company p {
   font-size: 18px;
   margin: 0;
 }
 
-.genre-list{
+.genre-list {
   background-color: red;
   color: #ffffff;
   padding: 5px 20px;
@@ -285,6 +285,115 @@ a:hover {
   border-radius: 10px;
 }
 
-.hero-content-left p span{
+.hero-content-left p span {
   padding: 0 20px;
+}
+
+.production-companies {
+  padding-bottom: 2rem;
+}
+.hero-content {
+  margin-top: 2rem;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .error-container h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+  
+  .error-container p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+
+@media screen and (max-width: 1600px) {
+  .movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .swiperMty img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+}
+@media screen and (max-width: 980px) {
+
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 30px;
+  }
+  .card-movie {
+    height: 550px;
+  }
+
+  .navbar {
+    padding: 1rem 1rem;
+  }
+  .all-movies {
+    padding: 2rem 0;
+  }
+  .poster {
+    object-fit: cover;
+    height: 500px;
+    width: 100%;
+  }
+  .hero-content {
+    flex-direction: column;
+  }
+  .hero-content-right,
+  .hero-content-left {
+    width: 100%;
+  }
+  .hero-content-right {
+    margin-left: 0px;
+    margin-top: 2rem;
+  }
+  .hero-content {
+    margin-top: 0rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px 10px;
+  }
+
+  .main-nav {
+    flex-direction: column;
+  }
+  .sublink ul li a {
+    font-size: 12px;
+  }
+  .genres{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .genre-list {
+    margin: 10px 0;
+    margin-right: 10px;
+}
+}
+
+@media screen and (max-width: 480px) {
+  .card-movie {
+    height: 600px;
+  }
 }

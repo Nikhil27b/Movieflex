@@ -18,7 +18,7 @@ const MovieDetails = () => {
     [query]
   );
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>Loading....</p>;
   if (error) return <p>{error}</p>;
   if (!movie) return null;
 

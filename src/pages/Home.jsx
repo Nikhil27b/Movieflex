@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import MovieCard from "../components/MovieCard";
 import BannerSlider from "../components/Banner";
 
@@ -8,8 +8,9 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [sections, setSections] = useState([]);
-  const currentPageRef = 1; 
-
+  const currentPageRef = 1;
+  const currentYearRef = useRef(2012); 
+  
   const fetchMovies = async (selectedYear) => {
     setIsLoading(true);
     try {
@@ -21,7 +22,7 @@ const Home = () => {
         year: selectedYear,
         movies: data.results,
       };
-
+  
       setSections((prevSections) => [...prevSections, newSection]);
     } catch (error) {
       console.error("Error fetching movies:", error);
@@ -29,25 +30,28 @@ const Home = () => {
       setIsLoading(false);
     }
   };
-
+  
   useEffect(() => {
     fetchMovies(2012);
   }, []);
-
+  
   useEffect(() => {
     const onBottomOfHomePage = () => {
       if (
         window.innerHeight + window.scrollY >= document.body.offsetHeight &&
-        !isLoading
+        !isLoading &&
+        currentYearRef.current < 2024
       ) {
-        const nextYear = Math.min(sections.length + 2012, 2024);
+        const nextYear = currentYearRef.current + 1; 
+        currentYearRef.current = nextYear;
         fetchMovies(nextYear);
       }
     };
-
+  
     window.addEventListener("scroll", onBottomOfHomePage);
     return () => window.removeEventListener("scroll", onBottomOfHomePage);
-  }, [sections, isLoading]);
+  }, [isLoading]);
+  
 
   return (
     <>
